@@ -42,6 +42,17 @@ has_one :order
 | ------------------ | ---------- | ------------------------------ |
 | user_id            | references | null: false, foreign_key: true |
 | item_id            | references | null: false, foreign_key: true |
+| paid               | string     | null: false                    |
+
+### Association
+belongs_to :user
+belongs_to :item
+
+
+## Addressesテーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| order_id           | references | null: false, foreign_key: true |
 | zip_code           | string     | null: false                    |
 | prefecture         | string     | null: false                    |
 | city               | string     | null: false                    |
@@ -50,5 +61,4 @@ has_one :order
 | phone              | string     | null: false                    |
 
 ### Association
-belongs_to :user
-belongs_to :item
+belongs_to :order
