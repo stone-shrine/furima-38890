@@ -29,7 +29,7 @@ end
     validates :image
     validates :name
     validates :description
-    validates :price, numericality: {in: 300..9999999}
+    validates :price_before_type_cast, numericality: {in: 300..9_999_999, message: "is out of setting range"}, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters"}
   end
 # /ActiveHash以外のバリデーション
 end
