@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
 # ActiveHash以外のアソシエーション
   belongs_to :user
+  has_one_attached :image
 # /ActiveHash以外のアソシエーション
 
 
