@@ -26,6 +26,7 @@ end
 
 # ActiveHash以外のバリデーション
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     validates :price, numericality: {in: 300..9999999}
