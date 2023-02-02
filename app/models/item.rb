@@ -27,7 +27,7 @@ end
   with_options presence: true do
     validates :name
     validates :description
-    validates :price
+    validates :price, numericality: {in: 300..9999999}
   end
 # /ActiveHash以外のバリデーション
 end
