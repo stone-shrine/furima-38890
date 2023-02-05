@@ -38,6 +38,8 @@ class ItemsController < ApplicationController
     if user_signed_in? && current_user.id == @item.user.id
       @item.destroy
       redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
