@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    item = FactoryBot.create(:item)
-    @order_address = FactoryBot.build(:order_address, user_id: item.user.id, item_id: item.id)
+    user1 = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user)
+    item = FactoryBot.create(:item, user_id: user1.id)
+    @order_address = FactoryBot.build(:order_address, user_id: user2.id, item_id: item.id)
     sleep 0.1 # Mysql2::Error: MySQL client is not connected のエラーが発生したため待機時間を設定
   end
 
