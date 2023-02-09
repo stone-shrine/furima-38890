@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   # ActiveHash以外のアソシエーション
   belongs_to :user
   has_one_attached :image
+  has_one :order
   # /ActiveHash以外のアソシエーション
 
   # ActiveHashのバリデーション
