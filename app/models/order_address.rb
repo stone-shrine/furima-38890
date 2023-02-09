@@ -12,7 +12,7 @@ class OrderAddress
     validates :phone, format: {with: /\A[0-9]+\z/, message: "is invalid. Input only number"}
     validates :token
   end
-  validates :phone, length: {is: 11, message: "is too short"}
+  validates :phone, length: {in: 10..11, message: "is too short"}
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
