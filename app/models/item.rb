@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   # /ActiveHash以外のアソシエーション
 
   # ActiveHashのバリデーション
-  with_options presence: true, numericality: { other_than: 1, message: "can't be blank" } do
+  with_options presence: true, numericality: { other_than: 1, message: "を入力してください" } do
     validates :category_id
     validates :status_id
     validates :prefecture_id
@@ -31,8 +31,8 @@ class Item < ApplicationRecord
     validates :description
     validates :price,
               numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
-                              message: 'is out of setting range' }
+                              message: 'が不正な値です' }
   end
-  validates :price, numericality: { only_integer: true, message: 'is invalid. Input half-width characters' }
+  validates :price, numericality: { only_integer: true, message: 'は半角英数字で入力してください' }
   # /ActiveHash以外のバリデーション
 end
