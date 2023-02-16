@@ -16,103 +16,103 @@ RSpec.describe Item, type: :model do
       it 'imageが空だとと出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("商品画像を入力してください")
       end
 
       it 'nameが空だと出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
 
       it 'descriptionが空だと出品できない' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description can't be blank")
+        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
       end
 
       it 'category_idの値が1だと出品できない' do
         @item.category = Category.where(id: 1).sample
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("カテゴリーを入力してください")
       end
 
       it 'status_idの値が1だと出品できない' do
         @item.status = Status.where(id: 1).sample
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("商品の状態を入力してください")
       end
 
       it 'payment_idの値が1だと出品できない' do
         @item.payment = Payment.where(id: 1).sample
         @item.valid?
-        expect(@item.errors.full_messages).to include("Payment can't be blank")
+        expect(@item.errors.full_messages).to include("配送料の負担を入力してください")
       end
 
       it 'prefecture_idの値が1だと出品できない' do
         @item.prefecture = Prefecture.where(id: 1).sample
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("発送元の地域を入力してください")
       end
 
       it 'lead_time_idの値が1だと出品できない' do
         @item.lead_time = LeadTime.where(id: 1).sample
         @item.valid?
-        expect(@item.errors.full_messages).to include("Lead time can't be blank")
+        expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
       end
 
       it 'priceが空だと出品できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("価格を入力してください")
       end
 
       it 'priceが299以下だと出品できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is out of setting range')
+        expect(@item.errors.full_messages).to include('価格が不正な値です')
       end
 
       it 'priceが10,000,000以上だと出品できない' do
         @item.price = '10_000_000'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is out of setting range')
+        expect(@item.errors.full_messages).to include('価格が不正な値です')
       end
 
       it 'priceが全角数字を含んでいると出品できない' do
         @item.price = '1000０'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
+        expect(@item.errors.full_messages).to include('価格は半角英数字で入力してください')
       end
 
       it 'priceが漢字を含んでいると出品できない' do
         @item.price = '1000亜'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
+        expect(@item.errors.full_messages).to include('価格は半角英数字で入力してください')
       end
 
       it 'priceが平仮名を含んでいると出品できない' do
         @item.price = '1000あ'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
+        expect(@item.errors.full_messages).to include('価格は半角英数字で入力してください')
       end
 
       it 'priceが片仮名を含んでいると出品できない' do
         @item.price = '1000ア'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
+        expect(@item.errors.full_messages).to include('価格は半角英数字で入力してください')
       end
 
       it 'priceが英字を含んでいると出品できない' do
         @item.price = '1000a'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
+        expect(@item.errors.full_messages).to include('価格は半角英数字で入力してください')
       end
 
       it 'userが紐付いていないと出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('User must exist')
+        expect(@item.errors.full_messages).to include('ユーザーを入力してください')
       end
     end
   end

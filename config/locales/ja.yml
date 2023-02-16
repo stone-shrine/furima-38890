@@ -10,6 +10,7 @@ ja:
         birth_date: 生年月日
       
       item:
+        user: ユーザー
         category_id: カテゴリー
         status_id: 商品の状態
         payment_id: 配送料の負担
@@ -23,6 +24,8 @@ ja:
   activemodel:
     attributes:
       order_address:
+        user_id: ユーザー
+        item_id: 商品
         token: クレジットカード情報
         zip_code: 郵便番号
         prefecture_id: 都道府県
